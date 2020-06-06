@@ -4,23 +4,14 @@ import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react
 import { ScrollView } from 'react-native-gesture-handler';
 
 import { MonoText } from '../components/StyledText';
+import Area from '../components/Area.js'
+import Temperature from '../components/Temperature.js'
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View>
-
-        <View style={styles.getStartedContainer}>
+        {/* <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
 
           <Text style={styles.getStartedText}>Open up the code for this screen:</Text>
@@ -30,15 +21,20 @@ export default function HomeScreen() {
           </View>
 
           <Text style={styles.getStartedText}>
-            Change any of the text, save the file, and your app will automatically reload.
+            Fo Bizzle my nizzle we in the Shizzle???
           </Text>
+        </View> */}
+
+        <View style={styles.graphContainer}>
+          <Text style={styles.developmentModeText}>Hot! Hot!</Text>
+          <Temperature />
         </View>
 
-        <View style={styles.helpContainer}>
+        {/* <View style={styles.helpContainer}>
           <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
             <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
@@ -175,5 +171,17 @@ const styles = StyleSheet.create({
   helpLinkText: {
     fontSize: 14,
     color: '#2e78b7',
+  },
+  graphContainer: {
+    backgroundColor: "rgba(240,240,214,1)",
+    borderRadius: 20,
+    shadowOpacity: 1,
+    shadowColor: "rgba(103,128,159,1)",
+    shadowOffset: {
+      width: 5,
+      height: 5,
+    },
+    elevation: 0,
+    flex:1,
   },
 });
