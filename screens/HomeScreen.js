@@ -52,6 +52,7 @@ export default function HomeScreen(props) {
         </View>
 
         <HumidText/>
+        
         <View style={styles.graphContainer}>
           <Text style={styles.developmentModeText}>Is it too dry?</Text>
           <Humidity />
