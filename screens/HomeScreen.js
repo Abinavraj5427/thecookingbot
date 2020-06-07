@@ -8,6 +8,8 @@ import moment from 'moment';
 import { MonoText } from '../components/StyledText';
 import Area from '../components/Area.js'
 import Temperature from '../components/Temperature.js'
+
+import PotOverflow from '../components/PotOverflow.js'
 import Stopwatch from '../components/Stopwatch/StopwatchContainer.js'
 
 export default function HomeScreen() {
@@ -28,6 +30,8 @@ export default function HomeScreen() {
           </Text>
         </View> */}
 
+        
+
         <View style={styles.temperatureContainer}>
           <Text style={styles.temperatureText}>
             98.9ºF
@@ -37,6 +41,11 @@ export default function HomeScreen() {
         <View style={styles.graphContainer}>
           <Text style={styles.developmentModeText}>Hot! Hot!</Text>
           <Temperature />
+        </View>
+
+        <View style={styles.graphContainer}>
+          <Text style={styles.developmentModeText}>How full is my pot?</Text>
+          <PotOverflow />
         </View>
 
         <View>

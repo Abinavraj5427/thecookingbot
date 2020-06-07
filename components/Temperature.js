@@ -11,7 +11,7 @@ class Temperature extends React.PureComponent {
 
         this.state = {
             msec: 0,
-            td: [0,0,0,0,0,0,0,0,0],
+            td: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         }
 
         this.lapArr = [];
@@ -49,7 +49,7 @@ class Temperature extends React.PureComponent {
                         msec: this.state.msec + 1
                     });
                 // console.log(this.state.msec)
-                if(this.state.msec > 300){
+                if(this.state.msec > 200){
                     // console.log("A");
                     this.updateTempArray();
                     this.setState({
@@ -65,11 +65,12 @@ class Temperature extends React.PureComponent {
     
     
     updateTempArray(){
-        //console.log("W.")
+        // console.log("W.")
         firebase.database().ref('temp').once('value').then(
             (snapshot) => {
                 var temperature = snapshot.val();
-                //console.log(temperature);
+                // console.log(temperature);
+                // console.log("BDLLFD")
                 var tempData = this.state.td;
                 // var newData =tempData.clone();
                 var newData = []
@@ -79,7 +80,7 @@ class Temperature extends React.PureComponent {
                 newData.shift();
                 // /console.log(newData)
                 newData.push(parseFloat(temperature));
-                // console.log(newData);
+                console.log(newData);
                 // console.log(newData.length)
                 
                 this.setState({
