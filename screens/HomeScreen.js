@@ -2,10 +2,13 @@ import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import moment from 'moment';
+
 
 import { MonoText } from '../components/StyledText';
 import Area from '../components/Area.js'
 import Temperature from '../components/Temperature.js'
+import Stopwatch from '../components/Stopwatch/StopwatchContainer.js'
 
 export default function HomeScreen() {
   return (
@@ -21,13 +24,23 @@ export default function HomeScreen() {
           </View>
 
           <Text style={styles.getStartedText}>
-            Fo Bizzle my nizzle we in the Shizzle???
+            Fo Sho we in the Shizzle???
           </Text>
         </View> */}
+
+        <View style={styles.temperatureContainer}>
+          <Text style={styles.temperatureText}>
+            98.9ºF
+          </Text>
+        </View>
 
         <View style={styles.graphContainer}>
           <Text style={styles.developmentModeText}>Hot! Hot!</Text>
           <Temperature />
+        </View>
+
+        <View>
+          <Stopwatch />
         </View>
 
         {/* <View style={styles.helpContainer}>
@@ -99,6 +112,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 30,
+    paddingBottom: 100,
   },
   welcomeContainer: {
     alignItems: 'center',
@@ -173,7 +187,7 @@ const styles = StyleSheet.create({
     color: '#2e78b7',
   },
   graphContainer: {
-    backgroundColor: "rgba(240,240,214,1)",
+    backgroundColor: "rgba(232,236,241,1)",
     borderRadius: 20,
     shadowOpacity: 1,
     shadowColor: "rgba(103,128,159,1)",
@@ -183,5 +197,45 @@ const styles = StyleSheet.create({
     },
     elevation: 0,
     flex:1,
+    margin: 5,
+  },
+  temperatureContainer: {
+    backgroundColor: "rgba(226, 106, 106, 0.8)",
+    color:  "rgba(232,236,241,1)",
+    borderRadius: 20,
+    shadowOpacity: 1,
+    shadowColor: "rgba(103,128,159,1)",
+    shadowOffset: {
+      width: 5,
+      height: 5,
+    },
+    elevation: 0,
+    flex:1,
+    flexDirection: 'column',
+    margin: 5,
+  },
+  temperatureText:{
+    margin: 10,
+    color:  "rgba(232,236,241,1)",
+    fontSize: 100,
+    flex:1,
+    flexDirection:'row',
+    flexWrap: 'wrap',
+    textAlign: 'center',
+    lineHeight: 0,
+  },
+  clockBox: {
+    backgroundColor: "rgba(232,236,241,1)",
+    borderRadius: 500,
+    shadowOpacity: 1,
+    shadowColor: "rgba(103,128,159,1)",
+    shadowOffset: {
+      width: 5,
+      height: 5,
+    },
+    elevation: 0,
+    flex:1,
+    marginVertical: 0,
+    marginHorizontal:100,
   },
 });

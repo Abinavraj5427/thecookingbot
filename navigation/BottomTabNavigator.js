@@ -17,18 +17,18 @@ export default function BottomTabNavigator({ navigation, route }) {
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
       <BottomTab.Screen
-        name="Home"
+        name="Recipe"
         component={HomeScreen}
         options={{
-          title: 'Get Started',
+          title: 'Get Cookin\' ',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
         }}
       />
       <BottomTab.Screen
-        name="Links"
+        name="Book"
         component={LinksScreen}
         options={{
-          title: 'Resources',
+          title: 'Cook Book!',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
         }}
       />
@@ -40,9 +40,9 @@ function getHeaderTitle(route) {
   const routeName = route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME;
 
   switch (routeName) {
-    case 'Home':
-      return 'How to Get Started';
-    case 'Links':
-      return 'Links to Learn More';
+    case 'Recipe':
+      return 'Recipe';
+    case 'Book':
+      return 'Cook Book';
   }
 }
