@@ -12,12 +12,12 @@ export default function StatusScreen(props){
     return(
         <View>
             <ScrollView>
-                <TouchableOpacity onPress={() => navigation.replace('Dashboard')}>
+                <TouchableOpacity>
                     <MonoText style={styles.developmentModeText}>
                         Sensor Status:
                     </MonoText>
                     <MonoText style = {styles.readyMessage}>
-                        Ready
+                        NOT READY
                     </MonoText>
                 </TouchableOpacity>
             </ScrollView>
@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
         fontSize: 24,
         textAlign: 'center',
         color: 'white',
-        backgroundColor: 'green'
+        backgroundColor: 'red'
     },
 });

@@ -9,7 +9,7 @@ import Stopwatch from '../components/Stopwatch/StopwatchContainer.js'
 export default function TimerScreen(props) {
   const {navigation} = props
   function timeStamp() {
-    navigation.navigate('Recipe Component');
+    navigation.navigate('Recipe Component', {});
   }
 
 

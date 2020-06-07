@@ -113,7 +113,7 @@ class PotOverflow extends React.PureComponent {
         return (
            
               
-            <ProgressCircle style={{ height: 200 }} progress={this.state.percentFull} progressColor={'rgb(134, 65, 244)'} />
+            <ProgressCircle style={{ height: 200 }} progress={0.3} progressColor={'rgb(134, 65, 244)'} />
            
         )
     }

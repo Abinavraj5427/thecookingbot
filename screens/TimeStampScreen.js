@@ -40,8 +40,8 @@ function TimeStampScreen(props) {
             ry={160}
           ></Ellipse>
         </Svg>
-        <Text style={styles.loremIpsum}>{}</Text>
-        <Text style={styles.loremIpsum1}>{updateTemp()}</Text>
+        <Text style={styles.loremIpsum}>{this.state.time}</Text>
+        <Text style={styles.loremIpsum1}>{this.state.temperature}</Text>
       </View>
       <TextInput
         placeholder="Add Text Here!"
