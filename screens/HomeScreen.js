@@ -7,7 +7,10 @@ import moment from 'moment';
 
 import { MonoText } from '../components/StyledText';
 import Area from '../components/Area.js'
+import TempText from '../components/TempText.js'
 import Temperature from '../components/Temperature.js'
+import Humidity from '../components/Humidity.js'
+
 
 import PotOverflow from '../components/PotOverflow.js'
 import Stopwatch from '../components/Stopwatch/StopwatchContainer.js'
@@ -17,6 +20,9 @@ export default function HomeScreen(props) {
   function timeStamp() {
     navigation.navigate('Recipe Component');
   }
+
+
+  
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -35,16 +41,17 @@ export default function HomeScreen(props) {
         </View> */}
 
         
-
-        <View style={styles.temperatureContainer}>
-          <Text style={styles.temperatureText}>
-            98.9ºF
-          </Text>
-        </View>
+        <TempText/>
+        
 
         <View style={styles.graphContainer}>
           <Text style={styles.developmentModeText}>Hot! Hot!</Text>
           <Temperature />
+        </View>
+
+        <View style={styles.graphContainer}>
+          <Text style={styles.developmentModeText}>Is it too dry?</Text>
+          <Humidity />
         </View>
 
         <View style={styles.graphContainer}>
