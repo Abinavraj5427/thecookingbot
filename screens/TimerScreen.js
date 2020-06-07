@@ -4,20 +4,9 @@ import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react
 import { ScrollView } from 'react-native-gesture-handler';
 import moment from 'moment';
 
-
-import { MonoText } from '../components/StyledText';
-import Area from '../components/Area.js'
-import TempText from '../components/TempText.js'
-
-import HumidText from '../components/HumidText.js'
-import Temperature from '../components/Temperature.js'
-import Humidity from '../components/Humidity.js'
-
-
-import PotOverflow from '../components/PotOverflow.js'
 import Stopwatch from '../components/Stopwatch/StopwatchContainer.js'
 
-export default function HomeScreen(props) {
+export default function TimerScreen(props) {
   const {navigation} = props
   function timeStamp() {
     navigation.navigate('Recipe Component');
@@ -28,88 +17,18 @@ export default function HomeScreen(props) {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        {/* <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-          <Text style={styles.getStartedText}>Open up the code for this screen:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-          </View>
-
-          <Text style={styles.getStartedText}>
-            Fo Sho we in the Shizzle???
-          </Text>
-        </View> */}
-
-        
-        <TempText/>
-        
-
-        <View style={styles.graphContainer}>
-          <Text style={styles.developmentModeText}>Hot! Hot!</Text>
-          <Temperature />
+        <View>
+          <Stopwatch timeStamp = { timeStamp }/>
         </View>
-
-        <HumidText/>
-        <View style={styles.graphContainer}>
-          <Text style={styles.developmentModeText}>Is it too dry?</Text>
-          <Humidity />
-        </View>
-
-        <View style={styles.graphContainer}>
-          <Text style={styles.developmentModeText}>How full is my pot?</Text>
-          <PotOverflow />
-        </View>
-
-        {/* <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-          </TouchableOpacity>
-        </View> */}
       </ScrollView>
-
-      
     </View>
   );
 }
 
-HomeScreen.navigationOptions = {
+TimerScreen.navigationOptions = {
   header: null,
 };
 
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
-      </Text>
-    );
-
-    return (
-      <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use useful development
-        tools. {learnMoreButton}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode: your app will run at full speed.
-      </Text>
-    );
-  }
-}
-
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/workflow/development-mode/');
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/get-started/create-a-new-app/#making-your-first-change'
-  );
-}
 
 const styles = StyleSheet.create({
   container: {

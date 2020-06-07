@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
     temperatureText:{
       margin: 10,
       color:  "rgba(232,236,241,1)",
-      fontSize: 100,
+      fontSize: 50,
       flex:1,
       flexDirection:'row',
       flexWrap: 'wrap',

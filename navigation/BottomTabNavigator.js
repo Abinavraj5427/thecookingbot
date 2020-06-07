@@ -5,6 +5,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 
+import TimerNavigator from './TimerNavigator';
 import CookScreenNavigator from './CookScreenNavigator';
 
 const BottomTab = createBottomTabNavigator();
@@ -25,6 +26,15 @@ export default function BottomTabNavigator({ navigation, route }) {
         options={{
           title: 'Get Cookin\' ',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Timer"
+        component={TimerNavigator}
+        options={{
+          title: 'Timer',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-clock" />,
+          tabBarVisible: 'false',
         }}
       />
       <BottomTab.Screen
