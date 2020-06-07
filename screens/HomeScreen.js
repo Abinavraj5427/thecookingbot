@@ -9,6 +9,7 @@ import { MonoText } from '../components/StyledText';
 import Area from '../components/Area.js'
 import TempText from '../components/TempText.js'
 
+import Attendance from '../components/Attendance.js'
 import HumidText from '../components/HumidText.js'
 import Temperature from '../components/Temperature.js'
 import Humidity from '../components/Humidity.js'
@@ -42,7 +43,7 @@ export default function HomeScreen(props) {
           </Text>
         </View> */}
 
-        
+        <Attendance/>
         <TempText/>
         
 
@@ -52,7 +53,7 @@ export default function HomeScreen(props) {
         </View>
 
         <HumidText/>
-        
+
         <View style={styles.graphContainer}>
           <Text style={styles.developmentModeText}>Is it too dry?</Text>
           <Humidity />
