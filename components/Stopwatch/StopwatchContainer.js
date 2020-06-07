@@ -63,19 +63,7 @@ class StopwatchContainer extends Component {
         }
     };
 
-    handleReset = () => {
-        this.setState({
-            min: 0,
-            sec: 0,
-            msec: 0,
-
-            start: false
-        });
-
-        clearInterval(this.interval);
-
-        this.lapArr = [];
-    };
+    
 
     componentDidMount(){
         this.handleToggle();
