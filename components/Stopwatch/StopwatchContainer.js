@@ -1,6 +1,9 @@
 import  React, {Component} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Vibration, Platform } from 'react-native';
 import ListComponent from "./ListComponent.js";
+import { Notifications } from 'expo';
+import * as Permissions from 'expo-permissions';
+import Constants from 'expo-constants';
 
 let padToTwo = (number) => (number <= 9 ? `0${number}`: number);
 
@@ -13,6 +16,7 @@ class StopwatchContainer extends Component {
             min: 0,
             sec: 0,
             msec: 0,
+            expoPushToken: '',
         }
 
         this.lapArr = [];
@@ -20,6 +24,58 @@ class StopwatchContainer extends Component {
         this.interval = null;
     }
 
+     // Can use this function below, OR use Expo's Push Notification Tool-> https://expo.io/dashboard/notifications
+    sendPushNotification = async () => {
+        const message = {
+        to: this.state.expoPushToken,
+        sound: 'default',
+        title: 'Original Title',
+        body: 'And here is the body!',
+        data: { data: 'goes here' },
+        _displayInForeground: true,
+        };
+        const response = await fetch('https://exp.host/--/api/v2/push/send', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Accept-encoding': 'gzip, deflate',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(message),
+        });
+    };
+
+    registerForPushNotificationsAsync = async () => {
+        if (Constants.isDevice) {
+          const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+          let finalStatus = existingStatus;
+          if (existingStatus !== 'granted') {
+            const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+            finalStatus = status;
+          }
+          if (finalStatus !== 'granted') {
+            alert('Failed to get push token for push notification!');
+            return;
+          }
+          token = await Notifications.getExpoPushTokenAsync();
+          console.log("TOKEN")
+          console.log(token);
+          this.setState({ expoPushToken: token });
+        } else {
+          alert('Must use physical device for Push Notifications');
+        }
+    
+        if (Platform.OS === 'android') {
+          Notifications.createChannelAndroidAsync('default', {
+            name: 'default',
+            sound: true,
+            priority: 'max',
+            vibrate: [0, 250, 250, 250],
+          });
+        }
+      };
+    
+      
     handleToggle = () => {
         this.setState(
             {
@@ -56,6 +112,9 @@ class StopwatchContainer extends Component {
                         min: ++this.state.min
                     });
                 }
+                if(this.state.sec == 10 && this.state.msec == 0){
+                    this.sendPushNotification();
+                }
             }, 1);
 
         } else {
@@ -66,6 +125,7 @@ class StopwatchContainer extends Component {
     
 
     componentDidMount(){
+        this.registerForPushNotificationsAsync();
         this.handleToggle();
     }
 
