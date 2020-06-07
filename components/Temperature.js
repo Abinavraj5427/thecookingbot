@@ -106,7 +106,7 @@ class Temperature extends React.PureComponent {
         return (
             <View style={{height: 400, flexDirection: 'row'}}> 
                 <YAxis
-                    data={this.state.td}
+                    data= {this.state.td}
                     contentInset={contentInset}
                     svg={{
                         fill: 'grey',
