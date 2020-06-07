@@ -8,6 +8,8 @@ import moment from 'moment';
 import { MonoText } from '../components/StyledText';
 import Area from '../components/Area.js'
 import Temperature from '../components/Temperature.js'
+
+import PotOverflow from '../components/PotOverflow.js'
 import Stopwatch from '../components/Stopwatch/StopwatchContainer.js'
 
 export default function HomeScreen(props) {
@@ -32,6 +34,8 @@ export default function HomeScreen(props) {
           </Text>
         </View> */}
 
+        
+
         <View style={styles.temperatureContainer}>
           <Text style={styles.temperatureText}>
             98.9ºF
@@ -41,6 +45,11 @@ export default function HomeScreen(props) {
         <View style={styles.graphContainer}>
           <Text style={styles.developmentModeText}>Hot! Hot!</Text>
           <Temperature />
+        </View>
+
+        <View style={styles.graphContainer}>
+          <Text style={styles.developmentModeText}>How full is my pot?</Text>
+          <PotOverflow />
         </View>
 
         <View>
@@ -54,13 +63,7 @@ export default function HomeScreen(props) {
         </View> */}
       </ScrollView>
 
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-        <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>navigation/BottomTabNavigator.js</MonoText>
-        </View>
-      </View>
+      
     </View>
   );
 }

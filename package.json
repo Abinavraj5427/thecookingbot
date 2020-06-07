@@ -24,6 +24,7 @@
     "expo-linking": "^1.0.1",
     "expo-splash-screen": "^0.2.3",
     "expo-web-browser": "~8.2.0",
+    "firebase": "^7.15.0",
     "moment": "^2.26.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",

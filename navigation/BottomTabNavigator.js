@@ -20,8 +20,13 @@ export default function BottomTabNavigator({ navigation, route }) {
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
       <BottomTab.Screen
+<<<<<<< HEAD
         name="Cook Screen"
         component={CookScreenNavigator}
+=======
+        name="Status"
+        component={HomeScreen}
+>>>>>>> 312770776953288697bc784795b3bcc106f9d937
         options={{
           title: 'Get Cookin\' ',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
