@@ -7,6 +7,9 @@ import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
 
+import StatusScreen from './screens/HomeScreen';
+import HomeScreen from './screens/HomeScreen';
+
 const Stack = createStackNavigator();
 
 export default function App(props) {
@@ -18,10 +21,11 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-        <NavigationContainer linking={LinkingConfiguration}>
-          <Stack.Navigator>
+        <NavigationContainer >
+          {/* <Stack.Navigator initialRouteName = 'Root'>
             <Stack.Screen name="Root" component={BottomTabNavigator} />
-          </Stack.Navigator>
+          </Stack.Navigator> */}
+          <BottomTabNavigator />
         </NavigationContainer>
       </View>
     );

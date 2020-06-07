@@ -10,7 +10,11 @@ import Area from '../components/Area.js'
 import Temperature from '../components/Temperature.js'
 import Stopwatch from '../components/Stopwatch/StopwatchContainer.js'
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
+  const {navigation} = props
+  function timeStamp() {
+    navigation.navigate('Recipe Component');
+  }
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -40,7 +44,7 @@ export default function HomeScreen() {
         </View>
 
         <View>
-          <Stopwatch />
+          <Stopwatch timeStamp = { timeStamp }/>
         </View>
 
         {/* <View style={styles.helpContainer}>

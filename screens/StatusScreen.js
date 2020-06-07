@@ -7,16 +7,39 @@ import moment from 'moment';
 
 import { MonoText } from '../components/StyledText';
 
-export default function StatusScreen(){
+export default function StatusScreen(props){
+    const {navigation} = props
     return(
         <View>
             <ScrollView>
-                <TouchableOpacity>
-                    <MonoText>
-                        Status: Ready
+                <TouchableOpacity onPress={() => navigation.replace('Dashboard')}>
+                    <MonoText style={styles.developmentModeText}>
+                        Sensor Status:
+                    </MonoText>
+                    <MonoText style = {styles.readyMessage}>
+                        Ready
                     </MonoText>
                 </TouchableOpacity>
             </ScrollView>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+    },
+    developmentModeText: {
+      margin:40,
+      fontSize: 24,
+      textAlign: 'center',
+    },
+    readyMessage: {
+        margin:40, 
+        fontSize: 24,
+        textAlign: 'center',
+        color: 'white',
+        backgroundColor: 'green'
+    },
+});

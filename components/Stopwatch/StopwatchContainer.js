@@ -98,7 +98,7 @@ class StopwatchContainer extends Component {
                     <TouchableOpacity style={styles.button} onPress={()=>this.handleLap(this.state.min, this.state.sec, this.state.msec)} disabled={!this.state.start}><Text style={styles.buttonText}>Lap</Text></TouchableOpacity>
                 </View> */}
 
-                <ListComponent lap={this.lapArr} />
+                <ListComponent lap={this.lapArr} timeStamp = {this.props.timeStamp}/>
 
             </View>
         );
